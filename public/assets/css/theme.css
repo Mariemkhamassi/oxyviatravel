@@ -145,6 +145,9 @@
   margin-bottom: 5px;
 }
 
+
+
+
 .menu .tab-content .menu-item .price {
   font-size: 24px;
   font-weight: 700;
@@ -288,6 +291,24 @@ address {
   margin-bottom: 1rem;
   font-style: normal;
   line-height: inherit;
+}
+.card {
+  border: none;
+}
+
+.card.service-card:before {
+  content: '';
+  position: absolute;
+  left: 0.625rem;
+  bottom: 0.625rem;
+  width: 6.25rem;
+  height: 6.25rem;
+  background-color: #DF6951;
+  border-radius: 1.875rem 0 0.625rem 0;
+  z-index: -1;
+  -webkit-transition: all 0.2s ease-in-out;
+  -o-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
 }
 
 ol,
@@ -4343,6 +4364,45 @@ fieldset:disabled .btn {
     transition: none;
   }
 }
+/* Prevent the navbar items from wrapping */
+/* Logo transition when scrolling */
+.logo {
+  transition: all 0.3s ease-in-out;
+}
+
+.scrolled .logo {
+  opacity: 0;
+  visibility: hidden;
+}
+
+/* Position logo at the extreme top-left */
+
+
+
+
+/* Make sure navbar doesn't overlap */
+.navbar {
+  padding-left: 20px;
+  padding-right: 20px;
+  position: fixed; /* Fixed position for sticky navbar */
+  width: 100%;
+  z-index: 10; /* Keep navbar above other content */
+}
+
+/* Prevent navbar items from wrapping */
+.navbar-nav {
+  display: flex;
+  flex-wrap: nowrap; /* Ensure items stay in one line */
+  justify-content: flex-end; /* Align items to the right */
+  margin-left: auto; /* Ensure items align to the right side of the navbar */
+}
+
+/* Adjust navbar item font size */
+.nav-link {
+  font-size: 30px;
+  white-space: nowrap; /* Prevent text from wrapping */
+}
+
 
 .fade:not(.show) {
   opacity: 0;
@@ -4451,6 +4511,32 @@ fieldset:disabled .btn {
     left: auto /* rtl:ignore */;
   }
 }
+/* Default Navbar (Transparent at top) */
+.navbar {
+  transition: all 0.3s ease-in-out;
+  background-color: transparent !important;
+}
+
+/* Navbar when scrolling */
+.navbar.scrolled {
+  background-color: white !important; /* Change to your preferred color */
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* Optional shadow */
+}
+
+/* Change text color when scrolled */
+.navbar.scrolled .nav-link {
+  color: black !important;
+}
+
+/* Hide logo when scrolling */
+
+.scrolled .logo {
+  opacity: 0;
+  visibility: hidden;
+}
+
+
+
 
 @media (min-width: 768px) {
   .dropdown-menu-md-start {
@@ -4824,6 +4910,7 @@ fieldset:disabled .btn {
   border-top-right-radius: 0;
 }
 
+
 .nav {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -4943,22 +5030,14 @@ fieldset:disabled .btn {
 }
 
 .navbar {
-  position: relative;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -ms-flex-wrap: wrap;
-  flex-wrap: wrap;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  -webkit-box-pack: justify;
-  -ms-flex-pack: justify;
-  justify-content: space-between;
-  padding-top: 0.5rem;
-  padding-right: 1rem;
-  padding-bottom: 0.5rem;
-  padding-left: 1rem;
+  position: fixed; /* Fix the navbar at the top */
+  width: 100%;
+  top: 0;
+  left: 0;
+  z-index: 10; /* Ensure navbar is above other content */
+  padding-left: 70px; /* Adjust padding to create space for the logo */
+  padding-right: 20px;
+  background-color: transparent; /* Keep it transparent */
 }
 
 .navbar > .container,
@@ -4982,6 +5061,7 @@ fieldset:disabled .btn {
   margin-right: 1rem;
   font-size: calc(1.26738rem + 0.20859vw);
   white-space: nowrap;
+
 }
 
 @media (min-width: 1200px) {
@@ -6342,6 +6422,7 @@ fieldset:disabled .btn {
   -webkit-filter: invert(1) grayscale(100%) brightness(200%);
   filter: invert(1) grayscale(100%) brightness(200%);
 }
+
 
 .toast {
   width: 350px;
